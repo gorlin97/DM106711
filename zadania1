@@ -1,0 +1,26 @@
+from random import randint
+port pymysql
+
+# 1 zadanie
+a = [randint(0,100) for x in range(7)]
+print(a
+
+# 2 zadanie
+
+def los(a):
+    b = [randint(0,100) for x in range(a)]
+    return b
+print(los(3))
+
+# 3 zadanie
+
+def query(conn) :
+   temp = conn.cursor()
+   temp.execute( "SELECT imie, nazwysko FROM lista_ludzi" )
+   c = [imie for imie, nazwysko in temp.fetchall()]
+   return c
+
+db = pymysql.connect(host='95.49.72.123', user="root",  db="projekt_1")
+
+print(query(db))
+db.close()
